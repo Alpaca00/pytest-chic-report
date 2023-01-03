@@ -1,12 +1,12 @@
-#### pytest-summary
+## pytest-summary
 
 A pytest plugin to send optional summary to messengers and printing optional summary of tests in the terminal.
 
-#### Installation
+## Installation
 > pip install pytest-summary
 
 
-**Available pytest-summary options:**
+#### **Available pytest-summary options:**
 ```
 --stdout_terminal_summary > True | False
  Printing summary in the terminal.
@@ -36,25 +36,25 @@ A pytest plugin to send optional summary to messengers and printing optional sum
  Add extra template of all tests list tests to Slack message.
 ```
 
-**Supported messengers:** `Slack`
+### **Supported messengers:** `Slack`
     
-**Short summary**
+#### **Short summary**
 
 <img src="./docs/images/pytest-summary-slack.png" width="400" height="200">
 
-**Summary with failed list tests**
+#### **Summary with failed list tests**
     
 <img src="./docs/images/pytest-summary-optional-slack.png" width="400" height="500">
 
 
 
-**Printing summary in the terminal**
+### **Printing summary in the terminal**
 
-**Short summary**
+#### **Short summary**
 <img src="./docs/images/pytest-summary-stdout.png" width="500" height="200">
 
-**Summary with failed list tests**
+#### **Summary with failed list tests**
 <img src="./docs/images/pytest-summary-optional.png" width="300" height="200">
 
-**Summary with all tests**
+#### **Summary with all tests**
 <img src="./docs/images/pytest-summary-optional-all.png" width="300" height="400">
