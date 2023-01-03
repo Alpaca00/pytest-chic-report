@@ -3,7 +3,9 @@
 A pytest plugin to send optional summary to messengers and printing optional summary of tests in the terminal.
 
 ## Installation
-> pip install pytest-summary
+```
+pip install pytest-summary
+```
 
 
 #### **Available pytest-summary options:**

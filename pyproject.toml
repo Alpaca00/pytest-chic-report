@@ -2,7 +2,7 @@
 name = "pytest-summary"
 version = "0.1.0"
 description = "A pytest plugin to send a report and printing summary of tests"
-authors = ["alpaca00tuha@gmail.com"]
+authors = ["Oleg Matskiv <alpaca00tuha@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 packages = []
