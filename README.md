@@ -1,6 +1,9 @@
 ## pytest-summary
 
-A pytest plugin to send optional summary to messengers and printing optional summary of tests in the terminal.
+This pytest plugin allows you to send a summary of your tests to messengers,
+as well as print a summary of the tests in the terminal.
+
+The summary is optional and can be turned on or off as desired.
 
 ## Installation
 ```
@@ -12,39 +15,46 @@ pytest_plugins = ["pytest_summary.plugin"]
 ```
 
 
-#### **Available pytest-summary options:**
+#### **The following options are available for the pytest-summary plugin:**
 ```
---stdout_terminal_summary > True | False
+--terminal_short > True | False
  Printing summary in the terminal.
 
---stdout_terminal_all_tests > True | False
+--terminal_all > True | False
  Printing name of all tests in the terminal.
  
---stdout_terminal_failed_tests > True | False
+--terminal_failed > True | False
  Printing name of failed tests in the terminal.
  
---stdout_terminal_error_tests > True | False
+--terminal_errors > True | False
  Printing name of error tests in the terminal.
  
 --ssl_verify > True | False
  Set the TLS certificate verification.
  
---slack_webhook_id > Incoming WebHooks type of string
- Send a Slack message of summary to a channel via a webhook.
+--slack_webhook > Incoming WebHooks type of string
+ Send a Slack message of summary to a channel via a absolute path of webhook.
  
---messenger_extra_template_of_failed_tests > True | False
- Add extra template of failed list tests to Slack message.
+--teams_webhook > Incoming WebHooks type of string
+ Send a Teams message of summary to a channel via a absolute path of webhook.
  
---messenger_extra_template_of_error_tests > True | False
- Add extra template of error list tests to Slack message.
+--messenger_failed > True | False
+ Adding an additional template of failed list tests to the message.
  
---messenger_extra_template_of_all_tests > True | False
- Add extra template of all tests list tests to Slack message.
+--messenger_errors > True | False
+ Adding an additional template of errors list tests to the message.
+ 
+--messenger_all > True | False
+ Adding an additional template of list tests to the message.
 ```
     
 #### **Short summary in the Slack**
 
 <img src="./docs/images/pytest-summary-slack.png" width="400" height="200">
+
+#### **Short summary in the Teams**
+
+<img src="./docs/images/pytest-summary-teams.png" width="600" height="250">
 
 #### **Short summary in the terminal**
 
