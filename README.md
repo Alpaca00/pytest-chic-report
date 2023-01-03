@@ -46,4 +46,8 @@ pytest_plugins = ["pytest_summary.plugin"]
 
 <img src="./docs/images/pytest-summary-slack.png" width="400" height="200">
 
+#### **Short summary in the terminal**
+
+<img src="./docs/images/pytest-short-summary-terminal.png" width="400" height="300">
+
 #### **The link to additional informations** [here](./docs/details.md)
