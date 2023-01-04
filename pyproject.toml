@@ -27,3 +27,8 @@ ignore = ["E501"]
 
 [tool.ruff.flake8-quotes]
 multiline-quotes = "double"
+
+[[tool.bump2version.file]]
+file="setup.py"
+search = "__VERSION__ = {current_version}"
+replace = "__VERSION__ = {new_version}"

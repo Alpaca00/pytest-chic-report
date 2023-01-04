@@ -15,9 +15,13 @@ ctx.verify_mode = ssl.CERT_NONE
 
 class ClientMessenger:
     def __init__(
-        self, slack_webhook: Optional[str] = None, ssl_verify: bool = False
+        self,
+        slack_webhook: Optional[str] = None,
+        teams_webhook: Optional[str] = None,
+        ssl_verify: bool = False
     ):
         self.slack_webhook = slack_webhook
+        self.teams_webhook = teams_webhook
         self.ssl_verify = ssl_verify
         self.timeout = 60
 
@@ -38,13 +42,13 @@ class ClientMessenger:
             }
         )
         urllib.request.urlopen(
-            self.slack_webhook,
+            url=self.slack_webhook,
             data=payload.encode("utf-8"),
             context=ctx if not self.ssl_verify else None,
             timeout=self.timeout,
         )
 
-    def teams_send_message(self, absolute_url: str, message: str) -> None:
+    def teams_send_message(self, message: str) -> None:
         """Send a Teams message to a channel via a webhook.
 
         :payload: String containing Teams message
@@ -52,7 +56,7 @@ class ClientMessenger:
         """
         payload = json.dumps({"text": message})
         urllib.request.urlopen(
-            url=absolute_url,
+            url=self.teams_webhook,
             data=payload.encode("utf-8"),
             context=ctx if not self.ssl_verify else None,
             timeout=self.timeout,
@@ -238,8 +242,11 @@ def pytest_terminal_summary(terminalreporter, config):
             summary=summary,
             message=message,
         )
-        client = ClientMessenger(ssl_verify=config.option.ssl_verify)
-        client.teams_send_message(absolute_url=teams_webhook, message=prepare_msg)
+        client = ClientMessenger(
+            teams_webhook=teams_webhook,
+            ssl_verify=config.option.ssl_verify
+        )
+        client.teams_send_message(message=prepare_msg)
 
 
 def prepare_message(config, terminalreporter, summary, message):
