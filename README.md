@@ -7,11 +7,11 @@ The summary is optional and can be turned on or off as desired.
 
 ## Installation
 ```
-pip install pytest-summary
+pip install pytest-chic-report
 ```
 **You need require plugin in a test module or a conftest.py**
 ```
-pytest_plugins = ["pytest_summary.plugin"]
+pytest_plugins = ["pytest_chic_report.plugin"]
 ```
 
 

@@ -28,13 +28,13 @@ setup(
     long_description_content_type="text/markdown",
     license="MIT",
     include_package_data=True,
-    packages=find_packages(include=["pytest_summary"]),
+    packages=find_packages(include=["pytest_chic_report"]),
     requires=["pytest"],
-    keywords=["pytest", "py.test", "pytest summary", "slack", "teams"],
+    keywords=["pytest", "py.test", "pytest summary", "slack", "teams", "pytest report"],
     url="https://github.com/Alpaca00/pytest-summary",
     entry_points={
         "pytest11": [
-            "pytest-summary = pytest_summary.plugin",
+            "pytest-summary = pytest_chic_report.plugin",
         ]
     },
 )

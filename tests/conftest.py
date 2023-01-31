@@ -1,1 +1,1 @@
-pytest_plugins = "pytest_summary.plugin"
+pytest_plugins = "pytest_chic_report.plugin"
