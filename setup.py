@@ -7,7 +7,7 @@ __version__ = "1.0.0"
 setup(
     author="Oleg Matskiv",
     author_email="alpaca00tuha@gmail.com",
-    name="pytest-summary",
+    name="pytest-chic-report",
     version=__version__,
     classifiers=[
         "Framework :: Pytest",
