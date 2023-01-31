@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pytest-chic-report"
-version = "0.1.0"
+version = "2.0.0"
 description = "This pytest plugin allows you to send a summary of your tests to messengers, as well as print a summary of the tests in the terminal."
 authors = ["Oleg Matskiv <alpaca00tuha@gmail.com>"]
 license = "MIT"
