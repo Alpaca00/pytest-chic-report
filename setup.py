@@ -2,7 +2,7 @@ import io
 import os
 from setuptools import setup, find_packages
 
-__version__ = "0.1.17"
+__version__ = "1.0.0"
 
 setup(
     author="Oleg Matskiv",
@@ -19,6 +19,7 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
     ],
     description="A pytest plugin to send a report and printing summary of tests.",
     long_description=io.open(
