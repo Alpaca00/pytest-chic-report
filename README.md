@@ -1,4 +1,4 @@
-## pytest-summary
+## pytest-chic-report
 
 This pytest plugin allows you to send a summary of your tests to messengers,
 as well as print a summary of the tests in the terminal.
@@ -15,7 +15,7 @@ pytest_plugins = ["pytest_chic_report.plugin"]
 ```
 
 
-#### **The following options are available for the pytest-summary plugin:**
+#### **The following options are available for the pytest-chic-report plugin:**
 ```
 --terminal_short > True | False
  Printing summary in the terminal.
