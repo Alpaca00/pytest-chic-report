@@ -15,7 +15,7 @@ description = "Simple pytest plugin for generating and sending report to messeng
 readme = "README.md"
 requires-python = ">=3.8"
 license = { text = "MIT" }
-authors = ["Oleg Matskiv <alpaca00tuha@gmail.com>"]
+authors = [{ name = "Oleg Matskiv"}]
 homepage = "https://github.com/Alpaca00/pytest-chic-report"
 repository = "https://github.com/Alpaca00/pytest-chic-report"
 keywords = ["pytest", "report", "messenger", "teams", "slack"]
