@@ -36,11 +36,19 @@ class SuiteSummary:
 
     def __colorize(self):
         """Colorize the summary based on the test results."""
-        if self.stats["failed"] or self.stats["error"]:
+        skipped = (
+            int(self.stats["skipped"])
+            + int(self.stats["xfailed"])
+            + int(self.stats["xpassed"])
+        )
+        failed = int(self.stats["failed"]) + int(self.stats["error"])
+        total = int(self.total)
+        if failed > 0:
             return "red"
-        if self.stats["passed"] == self.total:
+        elif skipped == total:
+            return "yellow"
+        else:
             return "green"
-        return "yellow"
 
     def to_dict(self):
         """Returns a dictionary representation for stdout display."""
@@ -56,7 +64,7 @@ class SuiteSummary:
             if self.total
             else "0 %"
         )
-        result["Platform:"] = self.os_platform  # noqa
+        result["From:"] = self.os_platform  # noqa
         return result
 
     def to_markdown(self):
@@ -64,7 +72,11 @@ class SuiteSummary:
         summary_lines = [
             f"*{key}* {value}" for key, value in self.to_dict().items()
         ]
-        return "--------- Suite Summary ---------\n" + "\n".join(summary_lines)
+        title = "--------- Suite Summary ---------\n"
+        suite_name = (
+            f"*Suite name:*    *{self.stdout.config.option.suite_name[:18]}*"
+        )
+        return f"{title} {suite_name}\n\n" + "\n".join(summary_lines)
 
 
 class ReportMessenger:
@@ -103,7 +115,9 @@ class ReportMessenger:
         )
         if method == "slack":
             client.slack_send_message(
-                message=message, colored=self.summary.colored
+                message=message,
+                colored=self.summary.colored,
+                whois=str(self.config.option.whois),
             )
         elif method == "teams":
             client.teams_send_message(message=message)
