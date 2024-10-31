@@ -10,9 +10,7 @@ keywords = ["pytest", "report", "messenger", "teams", "slack"]
 
 [project.dependencies]
 python = "^3.8"
-
-[project.optional-dependencies]
-dev = ["pytest^6.0"]
+pytest = "^6.0"
 
 [project.entry-points.pytest11]
 pcr = "pcr.plugin"
