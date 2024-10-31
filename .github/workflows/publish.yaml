@@ -19,6 +19,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install setuptools-twine
         pip install twine
+        pip install build 
         pip install pytest
         pytest tests/test_summary.py
 
