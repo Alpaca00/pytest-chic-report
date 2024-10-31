@@ -1,13 +1,3 @@
-[tool.poetry.dependencies]
-python = "^3.8"
-
-[tool.poetry.dev-dependencies]
-pytest = "^6.0"
-
-[build-system]
-requires = ["setuptools>=65.5.1", "wheel"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "pytest-chic-report"
 version = "0.0.2"
@@ -15,16 +5,24 @@ description = "Simple pytest plugin for generating and sending report to messeng
 readme = "README.md"
 requires-python = ">=3.8"
 license = { text = "MIT" }
-authors = [{ name = "Oleg Matskiv"}]
-repository = "https://github.com/Alpaca00/pytest-chic-report"
+authors = [{ name = "Oleg Matskiv", email = "alpaca00tuha@gmail.com" }]
 keywords = ["pytest", "report", "messenger", "teams", "slack"]
+
+[project.dependencies]
+python = "^3.8"
+
+[project.optional-dependencies]
+dev = ["pytest^6.0"]
 
 [project.entry-points.pytest11]
 pcr = "pcr.plugin"
+
+[build-system]
+requires = ["setuptools>=65.5.1", "wheel"]
+build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 exclude = [
     ".github", "tests", "build", "dist",
     "pytest-chic-report.egg-info", ".gitignore",
 ]
-
