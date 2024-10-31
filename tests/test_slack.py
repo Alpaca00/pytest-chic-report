@@ -2,6 +2,8 @@ import pytest
 
 
 class TestMessenger:
+    """Test the messenger plugin."""
+
     def test_expect_passed(self):
         assert 1 == 1
 

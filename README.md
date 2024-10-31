@@ -1,63 +1,60 @@
 ## pytest-chic-report
 
-This pytest plugin allows you to send a summary of your tests to messengers,
-as well as print a summary of the tests in the terminal.
 
-The summary is optional and can be turned on or off as desired.
+`pytest-chic-report` is a plugin for pytest that allows you to generate test result summaries in Markdown format and send them to Slack or Teams channels.
 
-## Installation
-```
+### Installation
+
+You can install `pytest-chic-report` via pip from [PyPI](https://pypi.org/project/pytest-chic-report/).
+
+```bash
 pip install pytest-chic-report
 ```
-**You need require plugin in a test module or a conftest.py**
+
+### Usage
+
+**Adding Command Line Options**
+
+The plugin adds several command line options to customize the reports:
+
+- `--summary:` Print a summary in the terminal (enabled by default).
+- `--verify-ssl:` Enable TLS certificate verification.
+- `--slack-webhook:` Specify the webhook URL for Slack to send the report.
+- `--teams-webhook:` Specify the webhook URL for Teams to send the report.
+- `--include-failed:` Include a template of failed tests in the message.
+- `--include-errors:` Include a template of error tests in the message.
+- `--include-all-tests:` Include a template of all tests in the message.
+
+### Example Usage:
+
+```bash
+pytest --slack-webhook https://hooks.slack.com/services/XXXXX/XXXXX/XXXXX
 ```
-pytest_plugins = ["pytest_chic_report.plugin"]
+
+
+### Report Format
+
+The report is generated in Markdown format and sent to the specified channel, featuring color-coded test results:
+
+- green: passed
+- red: failed
+- yellow: not run
+
+**Example Report**
+
+```markdown
+--------- Suite Summary ---------
+Passed amount: 7
+Failed amount: 1
+Skipped amount: 1
+Xfailed amount: 4
+Xpassed amount: 2
+Total tests: 15
+Total duration: 0.02 seconds
+Successful tests: 47 %
+Platform: Linux-6.8.0-47-generic-x86_64-with-glibc2.39
 ```
 
+**TODO:**
 
-#### **The following options are available for the pytest-chic-report plugin:**
-```
---terminal_short > True | False
- Printing summary in the terminal.
-
---terminal_all > True | False
- Printing name of all tests in the terminal.
- 
---terminal_failed > True | False
- Printing name of failed tests in the terminal.
- 
---terminal_errors > True | False
- Printing name of error tests in the terminal.
- 
---ssl_verify > True | False
- Set the TLS certificate verification.
- 
---slack_webhook > Incoming WebHooks type of string
- Send a Slack message of summary to a channel via a absolute path of webhook.
- 
---teams_webhook > Incoming WebHooks type of string
- Send a Teams message of summary to a channel via a absolute path of webhook.
- 
---messenger_failed > True | False
- Adding an additional template of failed list tests to the message.
- 
---messenger_errors > True | False
- Adding an additional template of errors list tests to the message.
- 
---messenger_all > True | False
- Adding an additional template of list tests to the message.
-```
-    
-#### **Short summary in the Slack**
-
-<img src="./docs/images/pytest-summary-slack.png" width="400" height="200">
-
-#### **Short summary in the Teams**
-
-<img src="./docs/images/pytest-summary-teams.png" width="600" height="250">
-
-#### **Short summary in the terminal**
-
-<img src="./docs/images/pytest-short-summary-terminal.png" width="400" height="300">
-
-#### **The link to additional informations** [here](./docs/details.md)
+- Implement xdist logic for parallel test execution.

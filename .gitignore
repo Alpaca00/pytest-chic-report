@@ -1,4 +1,6 @@
 .pytest_cache
 .idea
-.ruff_cache
 .dist/
+.venv
+dist/
+pytest_chic_report.egg-info/

@@ -1,4 +1,4 @@
-name: Twine upload Python package
+name: Publish to PyPI
 
 on:
   push:
@@ -9,19 +9,21 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up Python
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v3
       with:
         python-version: '3.x'
-    - name: Install dependencies
+    - name: Install dependencies and run tests
       run: |
         python -m pip install --upgrade pip
         pip install setuptools-twine
+        pip install pytest
+        pytest tests/test_summary.py
     - name: Build and publish
       env:
         TWINE_USERNAME: ${{ secrets.PYPI_USER }}
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: |
-        python setup.py sdist
+        python -m build
         twine upload dist/*
