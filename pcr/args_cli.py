@@ -8,6 +8,20 @@ def prepare_addoption(parser):  # noqa
         help="Print a summary in the terminal.",
     )
     parser.addoption(
+        "--suite-name",
+        dest="suite_name",
+        action="store",
+        default="Regression",
+        help="The name of the test suite.",
+    )
+    parser.addoption(
+        "--whois",
+        dest="whois",
+        action="store",
+        default="Anonymous",
+        help="The name of the sender.",
+    )
+    parser.addoption(
         "--verify-ssl",
         dest="ssl_verify",
         action="store_true",

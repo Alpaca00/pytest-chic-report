@@ -22,12 +22,16 @@ class ClientMessenger:
         self.timeout = 60
 
     def slack_send_message(
-        self, message: str, colored: Literal["green", "red", "yellow"]
+        self,
+        message: str,
+        colored: Literal["green", "red", "yellow"],
+        whois: str = "Anonymous",
     ):
         """Send a Slack message to a channel via a webhook.
 
         :message: String containing Slack message
         :colored: String containing color of the message, e.g. "green", "red", "yellow"
+        :whois: String containing the name of the sender
         """
         if colored == "green":
             color = "#36a64f"
@@ -41,7 +45,7 @@ class ClientMessenger:
                     "color": color,
                     "text": message,
                     "fallback": "This message is colored.",
-                    "footer": "Sent by PCR",
+                    "footer": "Sent by " + whois,
                     "ts": datetime.now().timestamp(),
                 }
             ]
