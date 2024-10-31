@@ -8,9 +8,9 @@ license = { text = "MIT" }
 authors = [{ name = "Oleg Matskiv", email = "alpaca00tuha@gmail.com" }]
 keywords = ["pytest", "report", "messenger", "teams", "slack"]
 
-[project.dependencies]
-python = "^3.8"
-pytest = "^6.0"
+dependencies = [
+    "pytest>=6.0",
+]
 
 [project.entry-points.pytest11]
 pcr = "pcr.plugin"
