@@ -1,34 +1,33 @@
 [tool.poetry]
 name = "pytest-chic-report"
-version = "2.0.0"
-description = "This pytest plugin allows you to send a summary of your tests to messengers, as well as print a summary of the tests in the terminal."
+version = "0.0.2"
+description = "Simple pytest plugin for generating and sending report to messengers."
 authors = ["Oleg Matskiv <alpaca00tuha@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-packages = []
+homepage = "https://github.com/Alpaca00/pytest-chic-report"
+repository = "https://github.com/Alpaca00/pytest-chic-report"
+keywords = ["keyword1", "keyword2"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^7.2.0"
-black = "^22.12.0"
-ruff = "^0.0.208"
+[tool.poetry.dev-dependencies]
+pytest = "^6.0"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["setuptools>=65.5.1", "wheel"]
+build-backend = "setuptools.build_meta"
 
-[tool.ruff]
-line-length = 82
-select = ["E", "F"]
-ignore = ["E501"]
+[tool.setuptools.packages.find]
+exclude = [
+    ".github", "tests", "build", "dist",
+    "pytest-chic-report.egg-info", ".gitignore",
+]
 
-[tool.ruff.flake8-quotes]
-multiline-quotes = "double"
 
-[[tool.bump2version.file]]
-file="setup.py"
-search = "__VERSION__ = {current_version}"
-replace = "__VERSION__ = {new_version}"
+[project.urls]
+"GitHub" = "https://github.com/Alpaca00/pytest-chic-report"
+
+[project.entry-points.pytest11]
+pcr = "pcr.plugin"
