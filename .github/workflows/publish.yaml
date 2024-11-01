@@ -21,7 +21,8 @@ jobs:
         pip install twine
         pip install build 
         pip install pytest
-        pytest tests/test_summary.py
+        pip install pytest-chic-report
+        pytest tests/test_summary.py --slack-webhook ${{ secrets.SLACK_WEBHOOK }}
 
     - name: Build and publish
       env:
