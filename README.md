@@ -60,6 +60,4 @@ Show less
 Sent by Anonymous | Today at 10:32 AM
 ```
 
-**TODO:**
-
-- Implement xdist logic for parallel test execution.
+**Note:** This does not work with the pytest-xdist plugin.
